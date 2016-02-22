@@ -23,6 +23,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Include Angular CSRF
 gem 'angular_rails_csrf'
 
+# Allow us to seed some fake data
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +38,7 @@ gem 'angular_rails_csrf'
 group :production do
 	# Need PG for heroku, use sqlite locally
 	gem 'pg'
+	gem 'rails_12factor'
 end
 
 group :development, :test do
@@ -45,9 +49,6 @@ group :development, :test do
 
   # Debugger of choice
   gem 'better_errors'
-
-  # Allow us to seed some fake data
-  gem 'faker'
 
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
