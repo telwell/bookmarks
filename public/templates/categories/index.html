@@ -1,0 +1,32 @@
+<aside id="categories-sidebar" class="col-sm-3">
+	<div id="sidebar-wrapper">
+	  <ul class="sidebar-nav">
+	    <h3>Categories:</h3>
+	    <li>
+	      <a href="" ng-click="setFilter()">
+	        <i class="fa fa-list"></i>   All Categories
+	      </a>
+	    </li>
+
+	    <!-- TODO: Turn this into a directive -->
+	    <span ng-repeat="category in categories">
+	    	<li>
+		      <a href="" ng-click="setFilter(category.id)">
+		        <i class="fa fa-angle-double-right"></i>   {{ category.title | uppercase }}
+		      </a>
+		    </li>
+	    </span>
+
+			<hr>
+
+	    <li>
+	    	<b>
+	    		<a ui-sref="newCategory">
+						<i class="fa fa-plus"></i>   Add a Category
+	    		</a>
+	    	</b>
+	    </li>
+
+	  </ul>
+	</div>
+</aside>

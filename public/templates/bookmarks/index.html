@@ -1,0 +1,26 @@
+<main class="col-sm-9">
+	<h2>All Bookmarks:</h2>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>URL:</th>
+				<th>Description:</th>
+				<th>Category</th>
+				<th>Created At:</th>
+				<th>Edit/Delete</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="bookmark in bookmarks | filter: {category_id: filter}">
+				<td><a href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></td>
+				<td>{{bookmark.description | excerpt}}</td>
+				<td>{{getCategoryName(bookmark.category_id) | uppercase}}</td>
+				<td>{{bookmark.created_at | date}}</td>
+				<td><a href="" ng-click="deleteBookmark(bookmark.id)">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a ui-sref="newBookmark"><i class="fa fa-plus"></i>   Add a Bookmark</a>
+</main>

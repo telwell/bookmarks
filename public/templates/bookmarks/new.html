@@ -1,0 +1,34 @@
+<div class="col-sm-12">
+
+	<div class="col-sm-4 col-sm-offset-4">
+		<h2>Add a Bookmark</h2>
+		<form ng-submit="addBookmark()">
+			
+			<div class="form-group">
+				<input type="text" class="form-control" name="title" id="title" placeholder="Bookmark Title" ng-model="formData.title">
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" name="url" id="url" placeholder="URL" ng-model="formData.url">
+			</div>
+
+			<div class="form-group">
+				<select class="form-control" name="category_id" id="category_id" ng-model="formData.category_id">
+					<option value="">Select a Category</option>
+					<option ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<textarea class="form-control" name="description" id="description" placeholder="Bookmark Description..." ng-model="formData.description"></textarea>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary" value="Add Category">
+			</div>
+
+		</form>
+	
+	</div>	
+
+</div>
