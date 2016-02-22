@@ -4,15 +4,6 @@ app.service('categoriesService',
 	
 	var categories = Restangular.all('categories').getList().$object;
 
-	// TODO #1: Sidebar categories don't update upon submission.
-	// this function was to help alleviate this but it can't get called
-	// from within the promise. Since I'm using a service to send my 
-	// categories to the view I need to figure out how to update the service
-	// variable itself. 
-	var resetCategories = function(){
-		categories = Restangular.all('categories').getList().$object;
-	}
-
 	var info = {
 		filter: ''
 	}
@@ -36,7 +27,8 @@ app.service('categoriesService',
 	var addCategory = function(formData){
 		Restangular.all('categories').post({ category: { 	title: formData.title,
 																											description: 	formData.description}})
-													.then(function(){
+													.then(function(response){
+														categories.push(response)
 														$state.go('bookmarks');
 													})
 	}
